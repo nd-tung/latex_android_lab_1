@@ -1,0 +1,101 @@
+%===============================================================================
+% Zweck:    KTR-Seminar-Vorlage
+% Erstellt: 16.10.2007
+% Updated:  27.06.2016
+% Autor:    U.K. / M.G.
+%===============================================================================
+
+%===============================================================================
+% Zum Kompilieren pdflatex und bibtex ausführen.
+% Konfiguration in texmaker: Options -> Configure Texmaker -> Quick Build -> Select Latexmk + ViewPDF
+%	Entsprechende Informationen in den config/metainfo verändern
+% Zur Auswahl der Sprache im folgenden Befehl
+% ngerman für deutsch eintragen, english für Englisch.
+%===============================================================================
+
+\documentclass[journal, onecolumn, a4paper, 12pt]{IEEEtran}
+%===============================================================================
+% zentrale Layout-Angaben und Befehle
+%===============================================================================
+\newcommand\meta{./meta}
+\input{\meta/config/commands}
+%===============================================================================
+% LATEX-Dokument
+%===============================================================================
+
+\input{\meta/config/hyphenation}
+\begin{document}
+%===============================================================================
+% Zum Kompilieren pdflatex und bibtex ausführen.
+% Konfiguration in texmaker: Options -> Configure Texmaker -> Quick Build -> Select Latexmk + ViewPDF
+% Entsprechende Informationen in den config/metainfo verändern
+% Zur Auswahl der Sprache im folgenden Befehl
+% ngerman für deutsch eintragen, english für Englisch.
+%===============================================================================
+\selectlanguage{english}
+
+\maketitle
+
+\pagenumbering{Roman}
+\setcounter{page}{2}
+%
+\tableofcontents
+% Einstellungen f\"{u}r Literaturverzeichnis
+\newpage
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+\newpage
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+\newpage
+
+% Glossar und Akronymverzeichnis, ungenutzte Verzeichnisse bitte auskommentieren
+\printglossary[type=\acronymtype]  % list of acronyms
+\newpage
+\printglossary[type=symbolslist]   % list of symbols
+\newpage
+\printglossary[type=main]                     % main glossary
+%===============================================================================
+% LATEX-Dokument: Kapitel laden
+%===============================================================================
+%
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%
+% to use git tagging
+%
+\ifgit
+  \input{\meta/exampleContent/version}
+\fi
+%
+% hier einzelne Kapitel mit \input{Kapitel-File} einf\"{u}gen
+%
+\input{\meta/exampleContent/exampleContent}
+%
+%===============================================================================
+% LATEX-Dokument: Literaturverzeichnis
+%===============================================================================
+%
+\newpage
+\phantomsection
+% Einstellungen f\"{u}r Literaturverzeichnis
+\addcontentsline{toc}{section}{\bibname}
+
+\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{\meta/exampleLiterature/bib}
+% Nutzung von Bibtex:
+% hier den bib-file einbinden
+%
+% GATHER{bibfile.bib}
+% \footnotesize
+% \bibliography{bibfile}
+% ansonsten: bbl als tex Datei einbinden
+ %\input{KTR-Seminar-Literatur.tex}
+%===============================================================================
+% LATEX-Dokument: Literaturverzeichnis
+%===============================================================================
+\erklaerung
+\end{document}

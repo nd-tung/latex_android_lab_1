@@ -1,0 +1,38 @@
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.loa
+*.lof
+*.log
+*.lot
+*.nlo
+*.nls
+*.out
+*.pdf
+*.synctex.gz
+*.toc
+*.fls
+*.fdb_latexmk
+# Stylesheets and classes only in meta directory
+*.sty
+*.cls
+*.bst
+*.gin
+# glossary files
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.glsdefs
+*.slg
+*.syg
+*.syi
+# Do not initialize twice
+.prepared
+packages.txt
